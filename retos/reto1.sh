@@ -4,13 +4,15 @@
 # otra llamada result, vamos a inicializarles e imprimir sus valores.
 
 # Resolucion: el script ejecuta el comando df y espera una opcion como argumento, pero la misma debe contener 
-# un guion delante, si no lo tiene se muestra un mensaje en pantalla y se activa la opcion --help del comando df
-# Autor: jlamadrid
+# un guion delante, si no lo tiene se muestra un mensaje en pantalla y se ejecuta la opcion por defecto "--help"
+# del comando df
+# Autor: julian lamadrid, jlamadrid, litocruz
 
 #declaracion variables
 option="--help"
 result=""
 cantidad=$#
+
 # validacion de cantidad opciones
 if [ "$cantidad" -lt 1 ] ; then
   echo "uso del script es el siguiente $0 -option"
