@@ -1,23 +1,36 @@
 #!/bin/bash
-# Este script muestra uso de if anidados
+# Este script muestra uso de expresiones condicionales
 # Autor: Julian Lamadrid, jlamadrid, litocruz
 
-notaclase=0
-continua=""
+edad=0
+pais=""
+pathArchivo=""
 
-echo "Ejemplo IF anidados"
-read -n1 -p "Indique cual es su nota (1-9) " notaclase
-echo -e "\n"
-if [ $notaclase -ge 7 ]; then
-  echo "Alumno aprobo "
-  read -p "Va a continua en el proximo curso (s/n) " continua
-  if [ $continua = "s" ]; then
-    echo " Bienvenido al siguiente nivel"
-  else
-    echo " Gracias por elegirnos, esperamos verlo pronto"
-  fi
+read -p "Ingrese edad: " edad
+read -p "Ingrese pais: " pais
+read -p "Ingrese path del archivo: " pathArchivo
+
+echo -e "\nExpresiones condicionales con numeros"
+if [ $edad -lt 10 ]; then
+  echo "La persona es niño/a"
+elif [ $edad -ge 10 ] && [ $edad -le 17 ]; then
+  echo "La persona es adolescente"
 else
-  echo "Debe recursar"
+  echo "La persona es mayor"
 fi
 
-test
+echo -e "\nExpresiones condicionales con cadenas"
+if [ $pais = "EEUU" ]; then
+  echo "La persona es Yanki"
+elif [ $pais = "Argentina" ] || [ $pais = "Colombia" ]; then
+  echo "La persona es sudaka"
+else
+  echo "La persona es de paises orientales"
+fi
+
+echo -e "\nExpresiones condicionales con archivos"
+if [ -d $pathArchivo ]; then
+  echo "El directorio $pathArchivo existe"
+else
+  echo "El directorio $pathArchivo NO EXISTE"
+fi
