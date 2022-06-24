@@ -1,18 +1,16 @@
 #!/bin/bash
-# Este script muestra uso de lectura de archivos
+# Este script muestra uso de operaciones de archivos
 # Autor: Julian Lamadrid, jlamadrid, litocruz
 
-echo "Archivos - Lectura"
+echo "Operaciones de Archivos"
+mkdir -m 755 backupScripts
 
-cat $1
-echo -e "\nAlmacenar valores en una variable"
-valorCat=`cat $1`
-echo "$valorCat"
+echo -e "\nCopiar los scripts al directorio"
+cp *.* backupScripts/
+ls -l backupScripts/
 
-# Se utiliza variable especial IFS (Internal File Separator) para evitar que se recorten los espacion en blanco
-echo -e "\nLeer archivos linea por linea con while"
-while read linea
-do
-  echo "$linea"
-done < $1
+echo -e "\nMover el directorio backupScripts a otra ubicacion: $HOME"
+mv backupScripts $HOME
 
+echo -e "\Eliminar los archivos .txt"
+rm *.txt
